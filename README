@@ -6,4 +6,12 @@ Essentially I will add installer scripts for resources as I go, so in the future
 Requires:
 jq package to be installed on your system..
 
-To use carolinhr, create a directory called redm and then cd into it and clone this repo.
+To use carolinhr:
+mkdir redm && cd redm
+git clone https://github.com/PepeSilvia215/carolinhr.git
+./carolinhr/licensekey.sh
+./carolinhr/init.sh
+./carolinhr/start.sh
+
+and presto, now you are running your own server!
+
