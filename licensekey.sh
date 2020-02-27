@@ -15,7 +15,7 @@ fi
 #echo ""
 if [[ $set_key == true ]] 
 then
-	read -p "Would you like to set the license key now (Y/n)?" -n 1 -r
+	read -p "Would you like to set the license key now (Y/n?)" -n 1 -r
 else
 	read -p "Would you like to change the license key now (Y/n)?" -n 1 -r
 fi
@@ -41,7 +41,7 @@ then
 		then
 			echo -e "\nsv_licenseKey $sv_licenseKey" >> server.cfg
 		else
-			echo "sv_licenseKey $sv_licenseKey" >> server.cfg
+			echo -e "sv_licenseKey $sv_licenseKey" >> server.cfg
 		fi
 
 	else
