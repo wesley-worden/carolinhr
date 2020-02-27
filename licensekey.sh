@@ -24,5 +24,19 @@ then
 	echo ""
 	cat sources.json | jq '.sv_licenseKey = $REPLY' --arg REPLY "$REPLY" > sources.json.temp
 	mv sources.json.temp sources.json
-	echo -e "License key updated!"
+	
+	cd ../
+	if [[ -f server.cfg ]] 
+	then
+		if grep -q sv_licenseKey "server.cfg";
+		then
+			sed '/sv_licenseKey/d' ./server.cfg > server.cfg
+		fi
+		echo -e "Updating server config"
+		echo -e "\nsv_licenseKey $sv_licenseKey" >> server.cfg
+	else
+		echo -e "Server config was not changed, doesn't exist\n"
+	fi
+	cd carolinhr
+		echo -e "License key updated!"
 fi
