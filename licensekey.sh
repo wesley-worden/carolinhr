@@ -30,7 +30,7 @@ then
 	then
 		if grep -q sv_licenseKey "server.cfg";
 		then
-			sed '/sv_licenseKey/d' ./server.cfg > server.cfg
+			sed -i '/sv_licenseKey/d' server.cfg
 		fi
 		echo -e "Updating server config"
 		echo -e "\nsv_licenseKey $sv_licenseKey" >> server.cfg
