@@ -24,6 +24,7 @@ echo ""
 if [[ $REPLY =~ ^[Yy]$ || $REPLY == "" ]]
 then
 	read -p "Go to https://keymaster.fivem.net and sign in or register an account. Then register a license key for your server. When you are done copy it to your clipboard, click in this terminal window and paste it in. Most terminals require you to pres Control Shift V.`echo $'\n> '`" -n 32 -r
+	sv_licenseKey=$REPLY
 	echo ""
 	cat sources.json | jq '.sv_licenseKey = $REPLY' --arg REPLY "$REPLY" > sources.json.temp
 	mv sources.json.temp sources.json
