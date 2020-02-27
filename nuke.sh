@@ -27,7 +27,7 @@ then
 	rm -rf $base_dir # remove redm
 	mkdir redm
 	cd redm
-	get clone https://github.com/PepeSilvia215/carolinhr.git
+	git clone https://github.com/PepeSilvia215/carolinhr.git
 	cd redm/carolinhr
 	if [[ $backup_exists == true ]]
 	then
