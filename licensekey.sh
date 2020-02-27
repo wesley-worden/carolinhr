@@ -1,4 +1,6 @@
 #!/bin/bash
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+cd $script_dir # now we are safe
 sv_licenseKey="$(cat sources.json | jq -r '.sv_licenseKey')"
 set_key=true
 if [[ ! $sv_licenseKey =~ ^[a-zA-Z0-9]{32}$ ]]

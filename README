@@ -1,5 +1,8 @@
 Carol in HR is a RedM Server manager for linux. It will let you download and set up a basic server without any fuss, backup your configs, delete the server and allow you to set it up again with a few simple commands. in the future it will be able to install and uninstall resources.
 
+Huge thanks to d0p3t for the guide I followed here to get my first bare server going: https://forum.cfx.re/t/how-to-setup-a-redm-server/918850
+Essentially I will add installer scripts for resources as I go, so in the future others can also set up minimum roleplay servers easily. Thanks to everyone on the cfx.re forums for doing amazing work hacking the RAGE engine games that is so far above what I'm doing here
+
 Requires:
 jq package to be installed on your system..
 
