@@ -19,8 +19,14 @@ then
 	backup_exists=false
 	if [[ -f backup ]] 
 	then
-		backup_exists=true
-		cp -r backup /tmp/carolinhr/backup
+		if [ ! -z "$(ls -A backup)" ]
+		then
+			echo -e "Backups exist! The backups WILL NOT BE DESTROYED from the nuke but they WILL NOT BE RESTORED. Run the restore script to do so.\n"
+			backup_exists=true
+			cp -r backup /tmp/carolinhr/backup
+		else
+			echo -e "No backups to worry about.\n"
+		fi
 	fi
 	cd $base_dir
 	cd ../
