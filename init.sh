@@ -2,6 +2,7 @@
 echo -e "WARNING! This script initializes the server and should only be ran for first time installation or after executing the nuke script.\n"
 read -p "Are you sure? You must type INIT. " -n 4 -r
 echo ""
+echo ""
 if [[ $REPLY == "INIT" ]]
 then
 	echo -e "Checking to make sure base dir is named correctly..\n"
@@ -47,7 +48,7 @@ then
 	git clone $server_data_cfx_repo .
 	cd ../carolinhr
 
-	./generate-mimum-cfg.sh.dont
+	./generate-minimum-cfg.sh.dont
 
 	echo "Server initialized, howdy!"
 else
