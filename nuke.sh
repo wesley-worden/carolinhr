@@ -7,7 +7,22 @@ then
 	script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 	cd $script_dir # now we are safe
 	echo -e "Launching tactical nuke!\n"
+	base_dir="$(dirname $script_dir)"
 	# BEGIN NUKE STUFF
+
+	cd $base_dir
+	if [[ -d /tmp/carolinhr ]] 
+	then 
+		rm -rf /tmp/carolinhr
+	fi
+	cp carolinhr /tmp/carolinhr
+	cd ../
+	rm -rf $base_dir
+	mkdir redm
+	cp /tmp/carolinhr redm/carolinhr
+	cd redm/carolinhr
+
+	echo  "Operation completed with no survivors."
 
 else
 	echo -e "Submarines returning to standby, Mr. President.\n"
