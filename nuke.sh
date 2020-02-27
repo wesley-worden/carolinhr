@@ -13,13 +13,15 @@ then
 	cd $base_dir
 	if [[ -d /tmp/carolinhr ]] 
 	then 
+		echo -e "Deleting old temp file...\n"
 		rm -rf /tmp/carolinhr
 	fi
-	cp carolinhr /tmp/carolinhr
+
+	cp -r carolinhr /tmp/carolinhr
 	cd ../
 	rm -rf $base_dir
 	mkdir redm
-	cp /tmp/carolinhr redm/carolinhr
+	cp -r /tmp/carolinhr redm/carolinhr
 	cd redm/carolinhr
 
 	echo  "Operation completed with no survivors."
