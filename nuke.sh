@@ -34,7 +34,7 @@ then
 	mkdir redm
 	cd redm
 	git clone https://github.com/PepeSilvia215/carolinhr.git
-	cd redm/carolinhr
+	cd carolinhr
 	if [[ $backup_exists == true ]]
 	then
 		cp -r /temp/carolinhr/backup backup

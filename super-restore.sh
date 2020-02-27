@@ -19,4 +19,8 @@ then
 		rm -rf backup
 	fi
 	cp -r /tmp/carolinhr/backup backup
+	
+	echo "Backup file restored from /tmp"
+else
+	echo "Almost shot ourselves in the foot twice!"
 fi
