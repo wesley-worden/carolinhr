@@ -8,7 +8,7 @@ then
 	echo "carolinhr is not in a folder named redm/carolinhr! Aborting!"
 	exit 1
 fi
-cd ../server-files
+cd ../server-data
 
 echo -e "REMEMBER!\n"
 sleep 1
@@ -24,4 +24,4 @@ echo -e "be kind.\n"
 sleep 1
 
 echo -e "Starting server!\n"
-bash run.sh +exec server.cfg +set gamename rdr3
+bash ../server-files run.sh +exec server.cfg +set gamename rdr3
