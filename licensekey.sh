@@ -27,7 +27,7 @@ then
 	cat sources.json | jq '.sv_licenseKey = $REPLY' --arg REPLY "$REPLY" > sources.json.temp
 	mv sources.json.temp sources.json
 	
-	cd ../
+	cd ../server-data
 	if [[ -f server.cfg ]] 
 	then
 		if grep -q sv_licenseKey "server.cfg";
@@ -39,6 +39,6 @@ then
 	else
 		echo -e "Server config was not changed, doesn't exist\n"
 	fi
-	cd carolinhr
+	cd ../carolinhr
 		echo -e "License key updated!"
 fi
