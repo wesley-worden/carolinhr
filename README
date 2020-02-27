@@ -1,0 +1,6 @@
+Carol in HR is a RedM Server manager for linux. It will let you download and set up a basic server without any fuss, backup your configs, delete the server and allow you to set it up again with a few simple commands. in the future it will be able to install and uninstall resources.
+
+Requires:
+jq package to be installed on your system..
+
+To use carolinhr, create a directory called redm and then cd into it and clone this repo.
