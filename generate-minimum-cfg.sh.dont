@@ -5,7 +5,7 @@ cd $script_dir # now we are safe
 echo -e "Generating minimum server config...\n"
 
 echo -e "Copying minimum config over...\n"
-cp minimum.cfg.dont ../server-data/server.cfg
+cp minimum.cfg.dont ../server.cfg
 
 sv_licenseKey="$(cat sources.json | jq -r '.sv_licenseKey')"
 if [[ ! $sv_licenseKey =~ ^[a-zA-Z0-9]{32}$ ]]
@@ -14,5 +14,5 @@ then
 else
 	echo -e "Using license key $sv_licenseKey\n"
 fi
-echo -e "\nsv_licenseKey $sv_licenseKey" >> ../server-data/server.cfg
+echo -e "\nsv_licenseKey $sv_licenseKey" >> ../server.cfg
 echo -e "License key added to server config\n"

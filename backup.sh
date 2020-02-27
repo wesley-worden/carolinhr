@@ -48,7 +48,7 @@ then
 	if [[ -f ../server-data/server.cfg ]] 
 	then
 		echo -e "Backing up server.cfg..\n"
-		cp ../server-data/server.cfg backup/server.cfg.bak
+		cp ../server.cfg backup/server.cfg.bak
 	fi
 	
 	echo -e "Backup completed successfully.\n"

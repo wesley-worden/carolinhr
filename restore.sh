@@ -41,7 +41,7 @@ then
 	if [[ -f backup/server.cfg.bak ]] 
 	then
 		echo -e "Restoring server.cfg...\n"
-		cp backup/server.cfg.bak ../server-data/server.cfg
+		cp backup/server.cfg.bak ../server.cfg
 	fi
 
 	echo -e "Retore finished successfully.\n"
