@@ -44,6 +44,12 @@ then
 		echo -e "Backing up sources.json...\n"
 		cp sources.json backup/sources.json.bak
 	fi
+
+	if [[ -f ../server.cfg ]] 
+	then
+		echo -e "Backing up server.cfg..\n"
+		cp ../server.cfg backup/server.cfg.bak
+	fi
 	
 	echo -e "Backup completed successfully.\n"
 else

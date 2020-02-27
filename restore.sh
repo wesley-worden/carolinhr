@@ -38,6 +38,12 @@ then
 		cp backup/sources.json.bak sources.json
 	fi
 
+	if [[ -f backup/server.cfg.bak ]] 
+	then
+		echo -e "Restoring server.cfg...\n"
+		cp backup/server.cfg.bak ../server.cfg
+	fi
+
 	echo -e "Retore finished successfully.\n"
 else
 	echo -e "Prolly just forgot to save your server.cfg heh\n"
