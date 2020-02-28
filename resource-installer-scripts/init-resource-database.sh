@@ -32,15 +32,40 @@ then
 		mysql --user="$(cat mysql-user)" --password="$(cat mysql-password)" --database="redemrp" < ../../server-data/resources/esplugin_mysql/esplugin_mysql.sql
 	fi
 fi
-if [[ -d ../../server-data/resources/esplugin_mysql/ ]]
+if [[ -d ../../server-data/resources/\[redemrp\] ]]
 then
-	if [[ ! -f ../../server-data/resources/esplugin_mysql/esplugin_mysql.sql ]]
+	cd ../../server-data/resources/\[redemrp\]
+	if [[ -d redemrp_skin ]]
 	then
-		echo -e "esplugin_mysql is corrupt\n"
+		if [[ ! -f redemrp_skin/skins.sql ]]
+		then
+		echo -e "redemrp_skin is corrupt\n"
 	else
-		echo  "doin esplugin_mysql "
-		mysql --user="$(cat mysql-user)" --password="$(cat mysql-password)" --database="redemrp" < ../../server-data/resources/esplugin_mysql/esplugin_mysql.sql
+		echo  "doin redemrp_skin "
+		mysql --user="$(cat $script_dir/mysql-user)" --password="$(cat $script_dir/mysql-password)" --database="redemrp" < redemrp_skin/skins.sql
+		fi
 	fi
+	if [[ -d redemrp_clothing ]]
+	then
+		if [[ ! -f redemrp_clothing/clothes.sql ]]
+		then
+		echo -e "redemrp_clothing is corrupt\n"
+	else
+		echo  "doin redemrp_clothing "
+		mysql --user="$(cat $script_dir/mysql-user)" --password="$(cat $script_dir/mysql-password)" --database="redemrp" < redemrp_clothing/clothes.sql
+		fi
+	fi
+	if [[ -d redemrp_inventory ]]
+	then
+		if [[ ! -f redemrp_inventory/user-inventory.sql ]]
+		then
+		echo -e "redemrp_inventory is corrupt\n"
+	else
+		echo  "doin redemrp_inventory "
+		mysql --user="$(cat $script_dir/mysql-user)" --password="$(cat $script_dir/mysql-password)" --database="redemrp" < redemrp_clothing/clothes.sql
+		fi
+	fi
+	cd $script_dir
 fi
 
 echo -e "finish injectin\n"
