@@ -15,3 +15,5 @@ git clone https://github.com/PepeSilvia215/carolinhr.git
 
 and presto, now you are running your own server!
 
+to get some basic mods up and started, checkout the resource-management folder. There is a script there called fuckmeup.sh will install redemrp mods and then init-redemrp-database will set up the database.
+
