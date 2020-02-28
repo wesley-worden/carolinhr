@@ -25,4 +25,4 @@ sleep 1
 
 echo -e "Starting server!\n"
 cd server-data
-bash ../server-files/run.sh +exec ../server.cfg +set gamename rdr3
+sh -c 'echo $$ > ../carolinhr/processid; exec bash ../server-files/run.sh +exec ../server.cfg +set gamename rdr3'

@@ -45,7 +45,7 @@ then
 		cp licensekey backup/licensekey.bak
 	fi
 
-	if [[ -f ../server-data/server.cfg ]] 
+	if [[ -f ../server.cfg ]] 
 	then
 		echo -e "Backing up server.cfg..\n"
 		cp ../server.cfg backup/server.cfg.bak
