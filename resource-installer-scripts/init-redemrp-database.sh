@@ -62,7 +62,7 @@ then
 		echo -e "redemrp_inventory is corrupt\n"
 	else
 		echo  "doin redemrp_inventory "
-		mysql --user="$(cat $script_dir/mysql-user)" --password="$(cat $script_dir/mysql-password)" --database="redemrp" < redemrp_clothing/clothes.sql
+		mysql --user="$(cat $script_dir/mysql-user)" --password="$(cat $script_dir/mysql-password)" --database="redemrp" < redemrp_inventory/user_inventory.sql
 		fi
 	fi
 	cd $script_dir
