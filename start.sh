@@ -24,4 +24,5 @@ echo -e "be kind.\n"
 sleep 1
 
 echo -e "Starting server!\n"
-bash server-files/run.sh +exec server.cfg +set gamename rdr3
+cd server-data
+bash ../server-files/run.sh +exec ../server.cfg +set gamename rdr3
