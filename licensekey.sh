@@ -2,7 +2,11 @@
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd $script_dir # now we are safe
 base_dir="$(dirname $script_dir)"
-sv_licenseKey="$(cat sources.json | jq -r '.sv_licenseKey')"
+if [[ ! -f licensekey ]]
+then
+	echo "changeme" > licensekey
+fi
+sv_licenseKey="$(cat licensekey)"
 set_key=true
 if [[ ! $sv_licenseKey =~ ^[a-zA-Z0-9]{32}$ ]]
 then
@@ -26,8 +30,7 @@ then
 	read -p "Go to https://keymaster.fivem.net and sign in or register an account. Then register a license key for your server. When you are done copy it to your clipboard, click in this terminal window and paste it in. Most terminals require you to pres Control Shift V.`echo $'\n> '`" -n 32 -r
 	sv_licenseKey=$REPLY
 	echo ""
-	cat sources.json | jq '.sv_licenseKey = $REPLY' --arg REPLY "$REPLY" > sources.json.temp
-	mv sources.json.temp sources.json
+	echo $sv_licenseKey > licensekey
 	
 	cd $base_dir
 	if [[ -f server.cfg ]] 

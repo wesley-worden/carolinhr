@@ -32,10 +32,10 @@ if [[ $REPLY == "RESTORE" ]]
 then
 	echo -e "Begining restore...\n"	
 	# BEGIN RESTORE STUFF
-	if [[ -f backup/sources.json.bak ]] 
+	if [[ -f backup/licensekey.bak ]] 
 	then
 		echo -e "Restoring sources.json...\n"
-		cp backup/sources.json.bak sources.json
+		cp backup/licensekey.bak licensekey 
 	fi
 
 	if [[ -f backup/server.cfg.bak ]] 

@@ -39,10 +39,10 @@ then
 	echo -e "Begining backup...\n"
 	mkdir backup	
 	# BEGIN BACKUP STUFF
-	if [[ -f sources.json ]]
+	if [[ -f licensekey ]]
 	then
-		echo -e "Backing up sources.json...\n"
-		cp sources.json backup/sources.json.bak
+		echo -e "Backing up license key...\n"
+		cp licensekey backup/licensekey.bak
 	fi
 
 	if [[ -f ../server-data/server.cfg ]] 

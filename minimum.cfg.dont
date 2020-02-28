@@ -19,7 +19,7 @@ sets locale "en-US"
 # please DO replace root-AQ on the line ABOVE with a real language!
  
 # Set your server's hostname
-sv_hostname "RedM Server, initialized with pepecontrol!"
+sv_hostname "RedM Server, initialized with carolinhr!"
 
 # Add system admins
 add_ace group.admin command allow # allow all commands

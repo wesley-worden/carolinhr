@@ -7,7 +7,11 @@ echo -e "Generating minimum server config...\n"
 echo -e "Copying minimum config over...\n"
 cp minimum.cfg.dont ../server.cfg
 
-sv_licenseKey="$(cat sources.json | jq -r '.sv_licenseKey')"
+if [[ ! -f licensekey ]]
+then
+	echo "changeme" > licensekey
+fi
+sv_licenseKey="$(cat licensekey)"
 if [[ ! $sv_licenseKey =~ ^[a-zA-Z0-9]{32}$ ]]
 then
 	echo -e "License key not setup yet, server won't show up in RedM until you run the license script.\n"
