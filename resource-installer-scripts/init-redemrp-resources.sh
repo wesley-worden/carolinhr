@@ -1,7 +1,7 @@
 #!/bin/bash
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd $script_dir # now we are safe
-echo -e "WARNING! This script installs RedEM and will modify server-data/resources and server.cfg. You may want to make a backup first.\n"
+echo -e "WARNING! This script installs RedEM and RedEM Roleplay mode and will modify server-data/resources and server.cfg. You may want to make a backup first.\n"
 read -p "Are you sure? You must type INIT. " -n 4 -r
 echo ""
 echo ""
@@ -29,9 +29,25 @@ then
 		cd $script_dir
 		echo -e "Adding lines to server config...\n"
 		echo "ensure redem" >> ../../server.cfg
-
-
 	fi
+	if [[ ! -d ../../server-data/resources/\[redemrp\] ]]
+	then
+		echo -e "Making redemrp resource folder...\n"
+		mkdir ../../server-data/resources/\[redemrp\]
+	fi
+	cd ../../server-data/resources/\[redemrp\]
+	if [[ ! -d mysql-async ]]
+	then
+		echo -e "cloning mysql-async repo...\n"
+		resource_redem_repo="$(cat ../../../carolinhr/sources.json | jq -r '.resource_redem_repo')"
+		git clone $mysql_async_repo
+
+	else
+		echo -e "mysql-async is already installed!/n"
+	fi
+	
+
+	cd $script_dir
 else
 	echo -e "Server has not been intialized yet, aborting!\n"
 	exit 1

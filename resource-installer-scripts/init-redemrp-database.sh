@@ -57,7 +57,7 @@ then
 	fi
 	if [[ -d redemrp_inventory ]]
 	then
-		if [[ ! -f redemrp_inventory/user-inventory.sql ]]
+		if [[ ! -f redemrp_inventory/user_inventory.sql ]]
 		then
 		echo -e "redemrp_inventory is corrupt\n"
 	else
