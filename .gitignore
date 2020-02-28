@@ -1,3 +1,5 @@
 licensekey
 processid
 backup/
+resource-installer-scripts/mysql-user
+resource-installer-scripts/mysql-password
