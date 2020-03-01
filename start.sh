@@ -8,7 +8,7 @@ then
 	echo "carolinhr is not in a folder named redm/carolinhr! Aborting!"
 	exit 1
 fi
-cd $base_dir
+#cd $base_dir
 
 echo -e "REMEMBER!\n"
 sleep 1
@@ -23,6 +23,18 @@ sleep 1
 echo -e "be kind.\n"
 sleep 1
 
+if [[ ! -f ../licensekey.cfg ]]
+else
+	echo -e "No licensekey!\n"
+	exit 1
+fi
+
 echo -e "Starting server!\n"
-cd server-data
-sh -c 'echo $$ > ../carolinhr/processid; exec bash ../server-files/run.sh +exec ../server.cfg +set gamename rdr3'
+cd ../server-data
+if [[ -f ../resources.cfg ]]
+then
+	sh -c 'echo $$ > ../carolinhr/processid; exec bash ../server-files/run.sh +exec ../server.cfg +exec ../licensekey.cfg +exec ../resources.cfg +set gamename rdr3 '
+else
+	sh -c 'echo $$ > ../carolinhr/processid; exec bash ../server-files/run.sh +exec ../server.cfg +exec ../licensekey.cfg +exec ../resources.cfg +set gamename rdr3 '
+fi
+cd $script_dir

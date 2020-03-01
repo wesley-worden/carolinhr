@@ -39,10 +39,10 @@ then
 	echo -e "Begining backup...\n"
 	mkdir backup	
 	# BEGIN BACKUP STUFF
-	if [[ -f licensekey ]]
+	if [[ -f ../licensekey.cfg ]]
 	then
 		echo -e "Backing up license key...\n"
-		cp licensekey backup/licensekey.bak
+		cp ../licensekey.cfg backup/licensekey.cfg.bak
 	fi
 
 	if [[ -f ../server.cfg ]] 

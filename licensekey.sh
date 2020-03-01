@@ -2,11 +2,11 @@
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd $script_dir # now we are safe
 base_dir="$(dirname $script_dir)"
-if [[ ! -f licensekey ]]
+if [[ ! -f ../licensekey.cfg ]]
 then
-	echo "changeme" > licensekey
+	echo -e "sv_licenseKey changeme\n" > ../licensekey.cfg
 fi
-sv_licenseKey="$(cat licensekey)"
+sv_licenseKey="$(cat ../licensekey.cfg | cut -c 14-)"
 set_key=true
 if [[ ! $sv_licenseKey =~ ^[a-zA-Z0-9]{32}$ ]]
 then
@@ -30,27 +30,7 @@ then
 	read -p "Go to https://keymaster.fivem.net and sign in or register an account. Then register a license key for your server. When you are done copy it to your clipboard, click in this terminal window and paste it in. Most terminals require you to pres Control Shift V.`echo $'\n> '`" -n 32 -r
 	sv_licenseKey=$REPLY
 	echo ""
-	echo $sv_licenseKey > licensekey
+	echo -e "sv_licenseKey $sv_licenseKey\n" > ../licensekey.cfg
 	
-	cd $base_dir
-	if [[ -f server.cfg ]] 
-	then
-		if grep -q sv_licenseKey "server.cfg";
-		then
-			sed -i '/sv_licenseKey/d' server.cfg
-		fi
-		echo -e "Updating server config"
-
-		if [[ $(tail -c 1 server.cfg) != "" ]]
-		then
-			echo -e "\nsv_licenseKey $sv_licenseKey" >> server.cfg
-		else
-			echo -e "sv_licenseKey $sv_licenseKey" >> server.cfg
-		fi
-
-	else
-		echo -e "Server config was not changed, doesn't exist\n"
-	fi
-	cd carolinhr
-		echo -e "License key updated!"
+	echo -e "License key updated!"
 fi
