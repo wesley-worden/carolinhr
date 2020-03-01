@@ -1,54 +1,33 @@
 #!/bin/bash
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd $script_dir # now we are safe
-echo -e "WARNING! This script installs RedEM and RedEM Roleplay mode and will modify server-data/resources and server.cfg. You may want to make a backup first.\n"
-read -p "Are you sure? You must type INIT. " -n 4 -r
+resources="$(echo $(cat resources.json | jq -r '.resources[]'))"
+echo -e "About to install the following resources:"
+echo -e "$(echo $resources | tr " " "\n")"
 echo ""
-echo ""
-if [[ $REPLY != "INIT" ]]
+if [[ ! -d ../../server-data/resources ]]
 then
+	echo -e "Server has not been initialized yet, aborting!\n"
 	exit 1
-fi
-
-if [[ ! -f ../../server.cfg ]]
-then
-	echo -e "The server needs a config before you want to install any resources, aborting!\n"
-	exit 1
-fi
-if [[ -d ../../server-data/resources ]]
-then
-	if [[ -d ../../server-data/resources/redem ]]
-	then
-		echo -e "RedEM has already been installed! Aborting!\n"
-		exit 1
-	else
-		cd ../../server-data/resources
-		echo -e "Cloning RedEM repo...\n"
-		resource_redem_repo="$(cat ../../../carolinhr/sources.json | jq -r '.resource_redem_repo')"
-		git clone $resource_redem_repo
-		cd $script_dir
-		echo -e "Adding lines to server config...\n"
-		echo "ensure redem" >> ../../server.cfg
-	fi
-	if [[ ! -d ../../server-data/resources/\[redemrp\] ]]
-	then
-		echo -e "Making redemrp resource folder...\n"
-		mkdir ../../server-data/resources/\[redemrp\]
-	fi
-	cd ../../server-data/resources/\[redemrp\]
-	if [[ ! -d mysql-async ]]
-	then
-		echo -e "cloning mysql-async repo...\n"
-		resource_redem_repo="$(cat ../../../carolinhr/sources.json | jq -r '.resource_redem_repo')"
-		git clone $mysql_async_repo
-
-	else
-		echo -e "mysql-async is already installed!/n"
-	fi
-	
-
-	cd $script_dir
 else
-	echo -e "Server has not been intialized yet, aborting!\n"
-	exit 1
+	if [[ ! -d ../../server-data/resources/\[carolinhr\] ]]
+	then
+		echo -e "making [carolinhr] resource folder...\n"
+		mkdir \[carolinhr\]
+	fi
+	cd ../../server-data/resources/\[carolinhr\]
+	for resource in $resources
+	do
+		if [[ -d resource ]]
+		then
+			echo -e "$resource is already installed, double check the resources folder, this script should really only be run after the server has been initialized."
+			exit 1
+		fi
+	done
 fi
+
+for resource in
+do
+	repo="$(cat resources.json | jq -r -- arg resource "$resource" '.repos[].[$resource]')"
+	echo $repo
+done

@@ -12,10 +12,10 @@ then
 	exit
 fi
 echo -e "WARNING! This script resets the mysql databse for the redemrp modules and deletes all their data! It will then inject the correct sql files depending on what resources are installed. But its not my fault if you dont have the dependent resources installed that need injected! Check each resources README if you are unsure. \n"
-read -p "Are you sure? You must type NUKE. " -n 4 -r
+read -p "Are you sure? You must type INIT. " -n 4 -r
 echo ""
 echo ""
-if [[ ! $REPLY == "NUKE" ]]
+if [[ ! $REPLY == "INIT" ]]
 then
 	exit 1
 fi
