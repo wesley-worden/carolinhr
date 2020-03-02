@@ -36,6 +36,8 @@ fi
 if [[ ! -f ../../resources.cfg ]]
 then
 	echo -e "set es_enableCustomData 1\nset mysql_connection_string \"server=localhost;uid=$(cat mysql-user);password=$(cat mysql-password);database=redemrp\"\n" > ../../resources.cfg
+else 
+	echo -e "resource.cfg already exists, aborting!"
 fi
 cd ../../server-data/resources/\[carolinhr\]
 for resource in $resources
@@ -51,14 +53,10 @@ do
 	echo "Installing $resource..."
 	repo="$(cat $script_dir/resources.json | jq -r --arg resource "$resource" '.repos[] | .[$resource]')"
 	echo "Fetching from $repo..."
-	git clone $repo
-	echo -e "ensure $resource\n" >> $script_dir/../../resources.cfg
+	git clone $repo $resource
+	echo -e "ensure $resource" >> $script_dir/../../resources.cfg
 	echo ""
 done
-if [[ -f ../../resources.cfg ]]
-then
-	rm ../../resources.cfg
-fi
 echo "Injectin'..."
 injection_dirs="$(cat $script_dir/resources.json | jq -r '.injections[] | keys[]')"
 for injection_resource in $injection_dirs

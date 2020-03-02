@@ -5,6 +5,8 @@ endpoint_add_udp "0.0.0.0:30120"
 ensure spawnmanager
 ensure mapmanager
 ensure basic-gamemode
+ensure chat
+ensure chat-gtao-theme
 
 # A comma-separated list of tags for your server.
 # For example:

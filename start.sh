@@ -24,7 +24,7 @@ echo -e "be kind.\n"
 sleep 1
 
 if [[ ! -f ../licensekey.cfg ]]
-else
+then
 	echo -e "No licensekey!\n"
 	exit 1
 fi
@@ -35,6 +35,6 @@ if [[ -f ../resources.cfg ]]
 then
 	sh -c 'echo $$ > ../carolinhr/processid; exec bash ../server-files/run.sh +exec ../server.cfg +exec ../licensekey.cfg +exec ../resources.cfg +set gamename rdr3 '
 else
-	sh -c 'echo $$ > ../carolinhr/processid; exec bash ../server-files/run.sh +exec ../server.cfg +exec ../licensekey.cfg +exec ../resources.cfg +set gamename rdr3 '
+	sh -c 'echo $$ > ../carolinhr/processid; exec bash ../server-files/run.sh +exec ../server.cfg +exec ../licensekey.cfg +set gamename rdr3 '
 fi
 cd $script_dir

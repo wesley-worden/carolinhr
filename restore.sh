@@ -43,6 +43,11 @@ then
 		echo -e "Restoring server.cfg...\n"
 		cp backup/server.cfg.bak ../server.cfg
 	fi
+	if [[ -f backup/resources.cfg.bak ]] 
+	then
+		echo -e "Restoring resources.cfg...\n"
+		cp backup/resources.cfg.bak ../resources.cfg
+	fi
 
 	echo -e "Retore finished successfully.\n"
 else

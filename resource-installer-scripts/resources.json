@@ -1,12 +1,12 @@
 {
 	"resources": [
-		"redem",
-		"esplugin_mysql"
+		"esplugin_mysql",
+		"redem"
 	],
 	"repos": [
 		{
-			"redem":"https://github.com/kanersps/redem.git",
-			"esplugin_mysql":"https://github.com/RedEM-RP/esplugin_mysql.git"
+			"esplugin_mysql":"https://github.com/RedEM-RP/esplugin_mysql.git",
+			"redem":"https://github.com/kanersps/redem.git"
 		}
 	],
 	"injections": [

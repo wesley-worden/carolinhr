@@ -51,6 +51,12 @@ then
 		cp ../server.cfg backup/server.cfg.bak
 	fi
 	
+	if [[ -f ../resources.cfg ]] 
+	then
+		echo -e "Backing up resources.cfg..\n"
+		cp ../resources.cfg backup/resources.cfg.bak
+	fi
+	
 	echo -e "Backup completed successfully.\n"
 else
 	echo -e "Prolly just forgot to save your server.cfg heh\n"
