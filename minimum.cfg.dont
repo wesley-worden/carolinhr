@@ -6,7 +6,7 @@ ensure spawnmanager
 ensure mapmanager
 ensure basic-gamemode
 ensure chat
-ensure chat-gtao-theme
+ensure chat-theme-gtao
 
 # A comma-separated list of tags for your server.
 # For example:
