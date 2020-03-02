@@ -38,7 +38,7 @@ then
 	cd carolinhr
 	if [[ $backup_exists == true ]]
 	then
-		cp -r /temp/carolinhr/backup backup
+		cp -r /tmp/carolinhr/backup backup
 	fi
 
 	echo  "Operation completed with no survivors."
