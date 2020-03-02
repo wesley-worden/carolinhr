@@ -57,13 +57,14 @@ do
 	echo -e "ensure $resource" >> $script_dir/../../resources.cfg
 	echo ""
 done
+echo "CREATE DATABASE redemrp;" | mysql --user="$(cat $script_dir/mysql-user)" --password="$(cat $script_dir/mysql-password)"
 echo "Injectin'..."
 injection_dirs="$(cat $script_dir/resources.json | jq -r '.injections[] | keys[]')"
 for injection_resource in $injection_dirs
 do
 	cd $injection_resource
 	injection_file="$(cat $script_dir/resources.json | jq -r --arg injection_resource "$injection_resource" '.injections[] | .[$injection_resource]')"
-	echo "Doin $injection_resource injectin $injection..."
-	mysql --user="$(cat $script_dir/mysql-user)" --password="$(cat $script_dir/mysql-password)" < $injection_file
+	echo "Doin $injection_resource injectin $injection_file..."
+	mysql --user="$(cat $script_dir/mysql-user)" --password="$(cat $script_dir/mysql-password)" redemrp < $injection_file
 	cd ../
 done

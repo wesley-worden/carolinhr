@@ -1,17 +1,38 @@
 {
 	"resources": [
+		"redem",
 		"esplugin_mysql",
-		"redem"
+		"mysql-async",
+		"redem_roleplay",
+		"redemrp_identity",
+		"redemrp_respawn",
+		"redemrp_skin",
+		"redemrp_clothing",
+		"redemrp_notification",
+		"redemrp_inventory",
+		"redem_admin"
 	],
 	"repos": [
 		{
+			"redem":"https://github.com/kanersps/redem.git",
 			"esplugin_mysql":"https://github.com/RedEM-RP/esplugin_mysql.git",
-			"redem":"https://github.com/kanersps/redem.git"
+			"mysql-async":"https://github.com/amakuu/mysql-async-temporary.git",
+			"redem_roleplay":"https://github.com/RedEM-RP/redem_roleplay.git",
+			"redemrp_identity":"https://github.com/RedEM-RP/redemrp_identity.git",
+			"redemrp_respawn":"https://github.com/RedEM-RP/redemrp_respawn.git",
+			"redemrp_skin":"https://github.com/RedEM-RP/redemrp_skin.git",
+			"redemrp_clothing":"https://github.com/RedEM-RP/redemrp_clothing.git",
+			"redemrp_notification":"https://github.com/Ktos93/redemrp_notification.git",
+			"redemrp_inventory":"https://github.com/RedEM-RP/redemrp_inventory.git",
+			"redem_admin":"https://github.com/Knaak53/-UNOFFICIAL-redemrp_admin.git"
 		}
 	],
 	"injections": [
 		{
-			"esplugin_mysql":"esplugin_mysql.sql"
+			"esplugin_mysql":"esplugin_mysql.sql",
+			"redemrp_skin":"skins.sql",
+			"redemrp_clothing":"clothes.sql",
+			"redemrp_inventory":"user_inventory.sql"
 		}
 	]
 }
