@@ -51,10 +51,8 @@ do
 	echo "Installing $resource..."
 	repo="$(cat $script_dir/resources.json | jq -r --arg resource "$resource" '.repos[] | .[$resource]')"
 	echo "Fetching from $repo..."
-	mkdir $resource
-	cd $resource
 	git clone $repo
-	cd ../
+	echo -e "ensure $resource\n" >> $script_dir/../../resources.cfg
 	echo ""
 done
 if [[ -f ../../resources.cfg ]]
@@ -66,8 +64,8 @@ injection_dirs="$(cat $script_dir/resources.json | jq -r '.injections[] | keys[]
 for injection_resource in $injection_dirs
 do
 	cd $injection_resource
-	injection="$(cat $script_dir/resources.json | jq -r --arg injection_dir "$injection_dir" '.injections[] | .[$injection_dir]')"
-	echo "Doin $injection_dir injectin $injection..."
-	mysql --user="$(cat $script_dir/mysql-user)" --password="$(cat $script_dir/mysql-password)" < $injection
+	injection_file="$(cat $script_dir/resources.json | jq -r --arg injection_resource "$injection_resource" '.injections[] | .[$injection_resource]')"
+	echo "Doin $injection_resource injectin $injection..."
+	mysql --user="$(cat $script_dir/mysql-user)" --password="$(cat $script_dir/mysql-password)" < $injection_file
 	cd ../
 done

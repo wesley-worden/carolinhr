@@ -15,3 +15,10 @@ then
 else
 	echo "Nothing to nuke :("
 fi
+if [[ -d ../../resources.cfg ]]
+then
+	echo "Removing resources.cfg..."
+	rm ../../resources.cfg
+else
+	echo "no resource.cfg to delete"
+fi
