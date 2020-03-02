@@ -40,3 +40,6 @@ sv_maxclients 32
 set steam_webApiKey "none"
 
 rcon_password PLSchangemePLS
+
+sv_master "" # uncomment to make server appear in server list
+
