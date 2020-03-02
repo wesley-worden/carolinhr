@@ -22,24 +22,24 @@ if [[ ! $REPLY == "INIT" ]]
 then
 	exit 1
 fi
-if [[ ! -d ../../server-data/resources ]]
+if [[ ! -d ../server-data/resources ]]
 then
 	echo -e "Server has not been initialized yet, aborting!\n"
 	exit 1
 else
-	if [[ ! -d ../../server-data/resources/\[carolinhr\] ]]
+	if [[ ! -d ../server-data/resources/\[carolinhr\] ]]
 	then
 		echo -e "making [carolinhr] resource folder...\n"
-		mkdir ../../server-data/resources/\[carolinhr\]
+		mkdir ../server-data/resources/\[carolinhr\]
 	fi
 fi
-if [[ ! -f ../../resources.cfg ]]
+if [[ ! -f ../resources.cfg ]]
 then
-	echo -e "set es_enableCustomData 1\nset mysql_connection_string \"server=localhost;uid=$(cat mysql-user);password=$(cat mysql-password);database=redemrp\"\n" > ../../resources.cfg
+	echo -e "set es_enableCustomData 1\nset mysql_connection_string \"server=localhost;uid=$(cat mysql-user);password=$(cat mysql-password);database=redemrp\"\n" > ../resources.cfg
 else 
 	echo -e "resource.cfg already exists, aborting!"
 fi
-cd ../../server-data/resources/\[carolinhr\]
+cd ../server-data/resources/\[carolinhr\]
 for resource in $resources
 do
 	if [[ -d $resource ]]
@@ -54,7 +54,7 @@ do
 	repo="$(cat $script_dir/resources.json | jq -r --arg resource "$resource" '.repos[] | .[$resource]')"
 	echo "Fetching from $repo..."
 	git clone $repo $resource
-	echo -e "ensure $resource" >> $script_dir/../../resources.cfg
+	echo -e "ensure $resource" >> $script_dir/../resources.cfg
 	echo ""
 done
 echo "CREATE DATABASE redemrp;" | mysql --user="$(cat $script_dir/mysql-user)" --password="$(cat $script_dir/mysql-password)"

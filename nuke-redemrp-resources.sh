@@ -18,17 +18,17 @@ if [[ ! $REPLY == "NUKE" ]]
 then
 	exit 1
 fi
-if [[ -d ../../server-data/resources/\[carolinhr\] ]]
+if [[ -d ../server-data/resources/\[carolinhr\] ]]
 then
 	echo "Removing carolinhr resource folder..."
-	rm -rf ../../server-data/resources/\[carolinhr\]
+	rm -rf ../server-data/resources/\[carolinhr\]
 else
 	echo "Nothing to nuke :("
 fi
-if [[ -f ../../resources.cfg ]]
+if [[ -f ../resources.cfg ]]
 then
 	echo "Removing resources.cfg..."
-	rm ../../resources.cfg
+	rm ../resources.cfg
 else
 	echo "no resource.cfg to delete"
 fi
