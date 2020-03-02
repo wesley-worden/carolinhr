@@ -24,7 +24,8 @@ sv_hostname "RedM Server, initialized with carolinhr!"
 # Add system admins
 add_ace group.admin command allow # allow all commands
 add_ace group.admin command.quit deny # but don't allow quit
-add_principal identifier.fivem:1 group.admin # add the admin to the group
+#add_principal identifier.fivem:1 group.admin # add the admin to the group
+add_principal identifier.steam:76561198412874508 group.admin # add the admin to the group# change this to your hex id or when i join i will be your admin lol
 
 # Hide player endpoints in external log output.
 sv_endpointprivacy true
@@ -35,3 +36,5 @@ sv_maxclients 32
 # Steam Web API key, if you want to use Steam authentication (https://steamcommunity.com/dev/apikey)
 # -> replace "" with the key
 set steam_webApiKey "none"
+
+rcon_password PLSchangemePLS

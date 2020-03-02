@@ -34,6 +34,7 @@ then
 	mkdir redm
 	cd redm
 	git clone https://github.com/PepeSilvia215/carolinhr.git
+	git checkout resource-management
 	cd carolinhr
 	if [[ $backup_exists == true ]]
 	then

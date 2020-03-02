@@ -18,5 +18,5 @@ then
 else
 	echo -e "Using license key $sv_licenseKey\n"
 fi
-echo -e "\nsv_licenseKey $sv_licenseKey" >> ../server.cfg
-echo -e "License key added to server config\n"
+echo -e "sv_licenseKey $sv_licenseKey" > ../licensekey.cfg
+echo -e "License key added to licensekey.cfg \n"
