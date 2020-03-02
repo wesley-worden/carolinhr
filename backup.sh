@@ -56,6 +56,18 @@ then
 		echo -e "Backing up resources.cfg..\n"
 		cp ../resources.cfg backup/resources.cfg.bak
 	fi
+
+	if [[ -f mysql-user ]]
+	then
+		echo "Backing up mysql-user..."
+		cp mysql-user backup/mysql-user.bak
+	fi
+
+	if [[ -f mysql-password ]]
+	then
+		echo "Backing up mysql-password..."
+		cp mysql-password backup/mysql-password.bak
+	fi
 	
 	echo -e "Backup completed successfully.\n"
 else

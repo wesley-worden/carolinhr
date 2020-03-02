@@ -48,6 +48,18 @@ then
 		echo -e "Restoring resources.cfg...\n"
 		cp backup/resources.cfg.bak ../resources.cfg
 	fi
+	
+	if [[ -f backup/mysql-user.bak ]] 
+	then
+		echo -e "Restoring resources.cfg...\n"
+		cp backup/mysql-user.bak ../mysql-user
+	fi
+	if [[ -f backup/mysql-password.bak ]] 
+	then
+		echo -e "Restoring mysql-password.cfg...\n"
+		cp backup/mysql-password.bak ../mysql-password
+	fi
+
 
 	echo -e "Retore finished successfully.\n"
 else
