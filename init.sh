@@ -51,6 +51,7 @@ then
 	./generate-minimum-cfg.sh.dont
 
 	echo "Server initialized, howdy!"
+	echo "It is highly recommened that you checkout server.cfg before running the server. You should change your steam id for admin and also set up steam auth."
 else
 	echo -e "Whew, that was a close one.\n"
 fi
