@@ -7,11 +7,11 @@ echo -e "Generating minimum server config...\n"
 echo -e "Copying minimum config over...\n"
 cp minimum.cfg.dont ../server.cfg
 
-if [[ ! -f licensekey ]]
+if [[ ! -f ../licensekey.cfg ]]
 then
-	echo "changeme" > licensekey
+	echo "sv_licenseKey changeme\n" > ../licensekey.cfg
 fi
-sv_licenseKey="$(cat licensekey)"
+sv_licenseKey="$(cat ../licensekey | cut -c 14-)"
 if [[ ! $sv_licenseKey =~ ^[a-zA-Z0-9]{32}$ ]]
 then
 	echo -e "License key not setup yet, server won't show up in RedM until you run the license script.\n"
