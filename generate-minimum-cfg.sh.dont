@@ -7,9 +7,11 @@ echo -e "Generating minimum server config...\n"
 echo -e "Copying minimum config over...\n"
 cp minimum.cfg.dont ../server.cfg
 
+generate_licensekey=false
 if [[ ! -f ../licensekey.cfg ]]
 then
 	echo "sv_licenseKey changeme\n" > ../licensekey.cfg
+	generate_licensekey=true
 fi
 sv_licenseKey="$(cat ../licensekey | cut -c 14-)"
 if [[ ! $sv_licenseKey =~ ^[a-zA-Z0-9]{32}$ ]]
@@ -18,5 +20,8 @@ then
 else
 	echo -e "Using license key $sv_licenseKey\n"
 fi
-echo -e "sv_licenseKey $sv_licenseKey" > ../licensekey.cfg
-echo -e "License key added to licensekey.cfg \n"
+if [[ $generate_licensekey == true ]]
+then
+	echo -e "sv_licenseKey $sv_licenseKey" > ../licensekey.cfg
+	echo -e "License key added to licensekey.cfg \n"
+fi
