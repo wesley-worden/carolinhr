@@ -10,7 +10,9 @@
 		"redemrp_clothing",
 		"redemrp_notification",
 		"redemrp_inventory",
-		"redem_admin"
+		"redem_admin",
+		"scoreboard-redm",
+		"cfx-rdr-spanser-debug"
 	],
 	"repos": [
 		{
@@ -24,7 +26,9 @@
 			"redemrp_clothing":"https://github.com/RedEM-RP/redemrp_clothing.git",
 			"redemrp_notification":"https://github.com/Ktos93/redemrp_notification.git",
 			"redemrp_inventory":"https://github.com/RedEM-RP/redemrp_inventory.git",
-			"redem_admin":"https://github.com/Knaak53/-UNOFFICIAL-redemrp_admin.git"
+			"redem_admin":"https://github.com/Knaak53/-UNOFFICIAL-redemrp_admin.git",
+			"scoreboard-redm":"https://github.com/ParisRP/scoreboard-RedM.git",
+			"cfx-rdr-spanser-debug":"https://github.com/spAnser/cfx-rdr-spanser-debug.git"
 		}
 	],
 	"injections": [
@@ -35,5 +39,9 @@
 			"redemrp_clothing":"clothes.sql",
 			"redemrp_inventory":"user_inventory.sql"
 		}
+	],
+	"databases": [
+		"redemrp",
+		"essentialmode"
 	]
 }

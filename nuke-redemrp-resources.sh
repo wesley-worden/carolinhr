@@ -33,4 +33,8 @@ else
 	echo "no resource.cfg to delete"
 fi
 
-echo "DROP DATABASE redemrp;" | mysql --user="$(cat mysql-user)" --password="$(cat mysql-password)"
+if [[ $1 == "database" ]]
+then
+	echo "dropping database tables..."
+echo "DROP DATABASE redemrp; DROP DATABASE essentialmode;" | mysql --user="$(cat mysql-user)" --password="$(cat mysql-password)"
+fi
