@@ -56,7 +56,12 @@ then
 		repo="$(cat $script_dir/resources.json | jq -r --arg resource "$resource" '.repos[] | .[$resource]')"
 		echo "Fetching from $repo..."
 		git clone $repo $resource
-		echo -e "ensure $resource" >> $script_dir/../resources.cfg
+		if [[ $1 == "dont" ]]
+		then
+			echo "not touching resource.cfg"
+		else
+			echo -e "ensure $resource" >> $script_dir/../resources.cfg
+		fi
 		echo ""
 	done
 	#echo "CREATE DATABASE redemrp;" | mysql --user="$(cat $script_dir/mysql-user)" --password="$(cat $script_dir/mysql-password)"

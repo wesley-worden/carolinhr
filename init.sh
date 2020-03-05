@@ -48,7 +48,12 @@ then
 	git clone $server_data_cfx_repo .
 	cd ../carolinhr
 
-	./generate-minimum-cfg.sh.dont
+	if [[ $1 == "dont" ]]
+	then
+		echo "not touching server.cfg"
+	else
+		./generate-minimum-cfg.sh.dont
+	fi
 
 	echo "Server initialized, howdy!"
 	echo "It is highly recommened that you checkout server.cfg before running the server. You should change your steam id for admin and also set up steam auth."
